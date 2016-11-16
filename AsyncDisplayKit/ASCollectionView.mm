@@ -1377,6 +1377,10 @@ static NSString * const kCellReuseIdentifier = @"_ASCollectionViewCell";
 
 - (NSUInteger)dataController:(ASCollectionDataController *)dataController supplementaryNodesOfKind:(NSString *)kind inSection:(NSUInteger)section
 {
+  if (_asyncDataSource == nil) {
+    return 0;
+  }
+
   return [self.layoutInspector collectionView:self supplementaryNodesOfKind:kind inSection:section];
 }
 
